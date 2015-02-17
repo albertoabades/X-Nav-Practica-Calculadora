@@ -1,0 +1,44 @@
+#calculadora{
+	width: 500px;
+	height: 640px;
+	background-color: #808080;
+	border: solid 5px;
+	border-radius: 15px;
+	padding-top: 30px;
+}
+
+#pantalla{
+	width: 350px;
+	height: 100px;
+	background-color: #90EE90;
+	border: solid 2px;
+	border-radius: 15px;
+
+}
+
+#botones{
+	width: 450px;
+	height: 600px;
+	padding-top: 20px;
+}
+
+.boton{
+	width: 90px;
+	height: 90px;
+	border-radius: 15px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	box-shadow: 4px 4px #000000;
+}
+
+button{
+	width: 90px;
+	height: 90px;
+	border: 0px;
+	background-color: #808080;
+}
+
+.row{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}

@@ -1,6 +1,7 @@
 var memoria = "";
 var pantalla = "0";
 var operacion = "";
+var signo = false;
 
 jQuery(document).ready(function() {
 	var valor;
@@ -13,7 +14,33 @@ jQuery(document).ready(function() {
 	$(".botonsim").click(function(){
 		operacion = $(this).val();
 		memoria = $("#pantalla").val();
-		$("#pantalla").val("0");
+		pantalla = "0";
+		$("#pantalla").val(pantalla);
+	})
+
+	$(document).keypress(function() {
+		valor = $(this).val();
+		acumular(valor);
+	})
+
+	$(".botonc").click(function(){
+		memoria = "";
+		pantalla = "0";
+		$("#pantalla").val(pantalla);
+		operacion = "";
+		signo = false;
+	})
+
+	$(".botonsig").click(function(){
+		if(signo == true){
+		var digito = $("#pantalla").val().substring(1, $("#pantalla").val().length);
+         $("#pantalla").val(digito);
+         signo = false;
+		}else{
+		var digito = "-" + $("#pantalla").val();
+         $("#pantalla").val(digito);
+         signo = true;
+		}
 	})
 
 	$(".botonigual").click(function(){
@@ -22,15 +49,19 @@ jQuery(document).ready(function() {
 		if(operacion == "+"){
 			resultado = sumar(memoria,valor);
 			$("#pantalla").val(resultado);
+			pantalla = "0";
 		}else if(operacion == "-"){
 			resultado = restar(memoria, valor);
 			$("#pantalla").val(resultado);
+			pantalla = "0";
 		}else if(operacion == "x"){
 			resultado = multiplicar(memoria, valor);
 			$("#pantalla").val(resultado);
+			pantalla = "0";
 		}else if(operacion == "/"){
 			resultado = dividir(memoria, valor);
 			$("#pantalla").val(resultado);
+			pantalla = "0";
 		}
 	});
 
